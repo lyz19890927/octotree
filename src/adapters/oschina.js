@@ -116,7 +116,7 @@ class Oschina extends PjaxAdapter {
     // Get branch by inspecting page, quite fragile so provide multiple fallbacks
     const branch =
       // Code page
-      $('.branch-select-menu .select-menu-item.selected').data('name') ||
+      $('#git-project-branch .text').text().trim() ||
       // Pull requests page
       ($('.commit-ref.base-ref').attr('title') || ':').match(/:(.*)/)[1] ||
       // Reuse last selected branch if exist

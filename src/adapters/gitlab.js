@@ -112,16 +112,21 @@ class Gitlab extends PjaxAdapter {
     if (!showInNonCodePage && type && !~['tree', 'blob'].indexOf(type)) {
       return cb()
     }
-
     // Get branch by inspecting page, quite fragile so provide multiple fallbacks
+    const GL_BRANCH_SEL_1 = '#repository_ref'
+    const GL_BRANCH_SEL_2 = '.select2-container.project-refs-select.select2 .select2-chosen'
+    // .nav.nav-sidebar is for versions below 8.8
+    const GL_BRANCH_SEL_3 = '.nav.nav-sidebar .shortcuts-tree, .nav-links .shortcuts-tree'
+
     const branch =
       // Code page
-      $('.branch-select-menu .select-menu-item.selected').data('name') ||
-      // Pull requests page
-      ($('.commit-ref.base-ref').attr('title') || ':').match(/:(.*)/)[1] ||
-      // Reuse last selected branch if exist
+      $(GL_BRANCH_SEL_1).val() || $(GL_BRANCH_SEL_2).text() ||
+      // Non-code page
+      // A space ' ' is a failover to make match() always return an array
+      ($(GL_BRANCH_SEL_3).attr('href') || ' ').match(/([^\/]+)/g)[3] ||
+      // Assume same with previously
       (currentRepo.username === username && currentRepo.reponame === reponame && currentRepo.branch) ||
-      // Get default branch from cache
+      // Default from cache
       this._defaultBranch[username + '/' + reponame]
 
     // Still no luck, get default branch for real
