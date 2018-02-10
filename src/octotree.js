@@ -19,11 +19,14 @@ $(document).ready(() => {
 
     const bitbucketUrls = ['https://bitbucket.org']
     const oschinaUrls = ['http://git.oschina.net', 'https://git.oschina.net', 'http://gitee.com', 'https://gitee.com']
+    const gitlabUrls = ["http://10.1.1.101:81"]
     const currentUrl = `${location.protocol}//${location.host}`
 
     if (oschinaUrls.indexOf(currentUrl) >= 0) {
       return new Oschina(store)
-    } if (~githubUrls.indexOf(currentUrl)) {
+    } else if (gitlabUrls.indexOf(currentUrl) >= 0) {
+      return new Gitlab(store)
+    } else if (~githubUrls.indexOf(currentUrl)) {
       return new GitHub(store)
     } else if (~bitbucketUrls.indexOf(currentUrl)) {
       return new Bitbucket(store)

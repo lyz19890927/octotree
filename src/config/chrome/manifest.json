@@ -13,6 +13,7 @@
     "https://git.oschina.net/*",
     "http://gitee.com/*",
     "https://gitee.com/*",
+    "http://10.1.1.101:81/*",
     "storage"
   ],
   "optional_permissions": [

@@ -14,7 +14,8 @@ gulp.task('clean', () => {
 })
 
 gulp.task('build', (cb) => {
-  $.runSequence('clean', 'styles', 'chrome', 'opera', 'safari', 'firefox', cb)
+  // $.runSequence('clean', 'styles', 'chrome', 'opera', 'safari', 'firefox', cb)
+  $.runSequence('clean', 'styles', 'chrome', cb)
 })
 
 gulp.task('default', ['build'], () => {
@@ -182,6 +183,8 @@ function buildJs(overrides, ctx) {
     './src/adapters/pjax.js',
     './src/adapters/bitbucket.js',
     './src/adapters/github.js',
+    './src/adapters/oschina.js',
+    './src/adapters/gitlab.js',
     './src/view.help.js',
     './src/view.error.js',
     './src/view.tree.js',
