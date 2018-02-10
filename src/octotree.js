@@ -16,10 +16,12 @@ $(document).ready(() => {
     const githubUrls = store.get(STORE.GHEURLS).split(/\n/)
       .map(normalizeUrl)
       .concat('https://github.com')
+    const gitlabUrls = store.get(STORE.GLEURLS).split(/\n/)
+      .map(normalizeUrl)
+      .concat(['https://gitlab.com', 'http://10.1.1.101:81'])
 
     const bitbucketUrls = ['https://bitbucket.org']
     const oschinaUrls = ['http://git.oschina.net', 'https://git.oschina.net', 'http://gitee.com', 'https://gitee.com']
-    const gitlabUrls = ["http://10.1.1.101:81"]
     const currentUrl = `${location.protocol}//${location.host}`
 
     if (oschinaUrls.indexOf(currentUrl) >= 0) {

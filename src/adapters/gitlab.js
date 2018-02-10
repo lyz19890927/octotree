@@ -48,7 +48,7 @@ class Gitlab extends PjaxAdapter {
 
   // @override
   _getCssClass() {
-    return 'octotree_oschina_sidebar'
+    return 'octotree_gitlab_sidebar'
   }
 
   // @override
