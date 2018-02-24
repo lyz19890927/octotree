@@ -1,6 +1,6 @@
 
 ## Code tree on Gitee and Gitlab
-Browser extension (Chrome) to show a code tree on [Gitee](https://gitee.com/inu1255/GitCodeTree) and [Gitlab](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md). Fork from octree. 
+Browser extension (Chrome) to show a code tree on [Gitee](https://gitee.com/inu1255/GitCodeTree) and [Gitlab](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md). Forked from octree. 
 
 ![GitLab](docs/chrome-gitlab.png) 
 
